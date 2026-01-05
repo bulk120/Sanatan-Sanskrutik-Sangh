@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanatan Sanskrutik Sangh - Preserving Cultural Heritage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #d9534f;
+            --secondary-color: #f9e79f;
+            --accent-color: #5d4037;
+            --light-color: #fef9e7;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Merriweather', serif;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0;
+            color: var(--primary-color);
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            color: var(--dark-color);
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+            background-color: var(--secondary-color);
+        }
+        
+        nav ul li a.active {
+            color: var(--primary-color);
+            background-color: var(--secondary-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1564507004663-b6dfb3e2ede5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2067&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 60px;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+        
+        /* Main Content */
+        main {
+            min-height: 70vh;
+            padding: 40px 0;
+        }
+        
+        .page-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+        
+        .page-content h2 {
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+        }
+        
+        /* Home Page Specific */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .address-box {
+            background-color: var(--secondary-color);
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 40px;
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .address-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-icon {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #ddd;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-section a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Utility Classes */
+        .hidden {
+            display: none;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-3 {
+            margin-bottom: 30px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero {
+                padding: 70px 20px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .page-content {
+                padding: 25px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            
+            .header-container {
+                flex-direction: row;
+                text-align: left;
+            }
+            
+            nav {
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                display: none;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .hero {
+                padding: 50px 15px;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .page-content {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-om"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Sanatan Sanskrutik Sangh</h1>
+                    <p>Preserving Cultural Heritage Since 1995</p>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="terms">Terms & Conditions</a></li>
+                    <li><a href="#" class="nav-link" data-page="privacy">Privacy Policy</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section (Home Page) -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <h2>Welcome to Sanatan Sanskrutik Sangh</h2>
+            <p>Dedicated to preserving and promoting the rich cultural heritage of Sanatan Dharma through education, events, and community engagement.</p>
+            <a href="#contact-section" class="cta-button">Join Our Community</a>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main>
+        <div class="container">
+            <!-- Home Page Content -->
+            <div id="home-page" class="page-content">
+                <h2>About Our Organization</h2>
+                <p>Sanatan Sanskrutik Sangh is a non-profit organization dedicated to preserving and promoting the ancient cultural heritage, traditions, and values of Sanatan Dharma. We organize cultural events, educational programs, and community services to foster spiritual growth and cultural awareness.</p>
+                
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <h3>Cultural Preservation</h3>
+                        <p>We work tirelessly to preserve ancient traditions, rituals, and art forms that are integral to Sanatan Dharma.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Community Building</h3>
+                        <p>Our organization brings people together to celebrate festivals, conduct religious ceremonies, and build strong community bonds.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Education & Awareness</h3>
+                        <p>We offer classes on Sanskrit, Vedic scriptures, yoga, meditation, and traditional arts to educate the younger generation.</p>
+                    </div>
+                </div>
+                
+                <div class="address-box" id="contact-section">
+                    <h3>Our Address & Contact Information</h3>
+                    <p><strong>Flat/Door/Block No.:</strong> 1197, DARGA</p>
+                    <p><strong>Village/Town:</strong> DARGA Block</p>
+                    <p><strong>Name of Premises/Building:</strong> 1197, DARGA Block</p>
+                    <p><strong>Road/Street/Lane:</strong> 1197, DARGA</p>
+                    <p><strong>City:</strong> KOLAR</p>
+                    <p><strong>District:</strong> KOLAR</p>
+                    <p><strong>State:</strong> KARNATAKA</p>
+                    <p><strong>Pin Code:</strong> 563101</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <p><strong>Mobile:</strong> 9663664880</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p><strong>Email:</strong> SMRENTERPRISES3615@GMAIL.COM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Terms & Conditions Page Content -->
+            <div id="terms-page" class="page-content hidden">
+                <h2>Terms & Conditions</h2>
+                <p>Welcome to Sanatan Sanskrutik Sangh. By accessing and using our services, you agree to comply with and be bound by the following terms and conditions.</p>
+                
+                <h3>1. Membership</h3>
+                <p>Membership in Sanatan Sanskrutik Sangh is open to all individuals who respect and wish to promote Sanatan Dharma and its cultural heritage. Members are expected to participate in organizational activities and adhere to our code of conduct.</p>
+                
+                <h3>2. Donations & Contributions</h3>
+                <p>All donations to Sanatan Sanskrutik Sangh are voluntary and non-refundable. Donations are used exclusively for organizational activities, cultural events, and charitable initiatives as per our mission.</p>
+                
+                <h3>3. Code of Conduct</h3>
+                <p>All members and participants in our events are expected to respect traditional values, maintain decorum during religious and cultural activities, and treat all individuals with dignity and respect regardless of background.</p>
+                
+                <h3>4. Event Participation</h3>
+                <p>Participation in events organized by Sanatan Sanskrutik Sangh is subject to registration requirements and may have limited capacity. We reserve the right to refuse participation to anyone not adhering to our values.</p>
+                
+                <h3>5. Intellectual Property</h3>
+                <p>All content, logos, and materials produced by Sanatan Sanskrutik Sangh are protected by copyright and may not be used without explicit written permission.</p>
+                
+                <h3>6. Amendments</h3>
+                <p>We reserve the right to amend these terms and conditions at any time. Updated terms will be posted on our website and will become effective immediately.</p>
+                
+                <p>Last updated: June 15, 2023</p>
+            </div>
+            
+            <!-- Privacy Policy Page Content -->
+            <div id="privacy-page" class="page-content hidden">
+                <h2>Privacy Policy</h2>
+                <p>Sanatan Sanskrutik Sangh is committed to protecting the privacy of our members, donors, and website visitors. This policy outlines how we collect, use, and protect your personal information.</p>
+                
+                <h3>1. Information Collection</h3>
+                <p>We collect information when you register for membership, donate, participate in events, or contact us. This may include name, contact details, payment information, and participation history.</p>
+                
+                <h3>2. Use of Information</h3>
+                <p>Your information is used to process memberships, donations, event registrations, communicate organizational updates, and improve our services. We do not sell or rent your personal information to third parties.</p>
+                
+                <h3>3. Data Security</h3>
+                <p>We implement appropriate security measures to protect your personal information from unauthorized access, alteration, or disclosure. However, no internet transmission is completely secure, and we cannot guarantee absolute security.</p>
+                
+                <h3>4. Cookies & Tracking</h3>
+                <p>Our website may use cookies to improve user experience and track website usage patterns. You can disable cookies in your browser settings, but this may affect website functionality.</p>
+                
+                <h3>5. Third-Party Links</h3>
+                <p>Our website may contain links to other websites. We are not responsible for the privacy practices or content of these external sites.</p>
+                
+                <h3>6. Children's Privacy</h3>
+                <p>We do not knowingly collect personal information from children under 13 without parental consent. If we become aware of such collection, we will take steps to remove the information.</p>
+                
+                <h3>7. Your Rights</h3>
+                <p>You have the right to access, correct, or delete your personal information held by us. To exercise these rights, please contact us using the information provided on our contact page.</p>
+                
+                <p>Last updated: June 15, 2023</p>
+            </div>
+            
+            <!-- Contact Us Page Content -->
+            <div id="contact-page" class="page-content hidden">
+                <h2>Contact Us</h2>
+                <p>We welcome your questions, feedback, and inquiries. Please use the information below to get in touch with Sanatan Sanskrutik Sangh.</p>
+                
+                <div class="contact-info mb-3">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Our Address</h4>
+                            <p>Flat/Door/Block No.: 1197, DARGA</p>
+                            <p>Village/Town: DARGA Block</p>
+                            <p>City: KOLAR, District: KOLAR</p>
+                            <p>State: KARNATAKA, Pin: 563101</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone Number</h4>
+                            <p>9663664880</p>
+                            <p>Monday to Saturday, 9:00 AM to 6:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email Address</h4>
+                            <p>SMRENTERPRISES3615@GMAIL.COM</p>
+                            <p>We respond within 24-48 hours</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Send us a Message</h3>
+                <form id="contactForm">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                        <div>
+                            <label for="name" style="display: block; margin-bottom: 8px; font-weight: bold;">Full Name *</label>
+                            <input type="text" id="name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;">
+                        </div>
+                        <div>
+                            <label for="email" style="display: block; margin-bottom: 8px; font-weight: bold;">Email Address *</label>
+                            <input type="email" id="email" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;">
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label for="subject" style="display: block; margin-bottom: 8px; font-weight: bold;">Subject *</label>
+                        <input type="text" id="subject" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;">
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label for="message" style="display: block; margin-bottom: 8px; font-weight: bold;">Your Message *</label>
+                        <textarea id="message" rows="6" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;"></textarea>
+                    </div>
+                    
+                    <button type="submit" style="background-color: var(--primary-color); color: white; padding: 12px 30px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 1.1rem; transition: var(--transition);">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sanatan Sanskrutik Sangh</h3>
+                    <p>Dedicated to preserving and promoting the rich cultural heritage of Sanatan Dharma through education, events, and community engagement.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#" class="footer-link" data-page="home">Home</a>
+                    <a href="#" class="footer-link" data-page="terms">Terms & Conditions</a>
+                    <a href="#" class="footer-link" data-page="privacy">Privacy Policy</a>
+                    <a href="#" class="footer-link" data-page="contact">Contact Us</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 1197, DARGA, KOLAR, KARNATAKA - 563101</p>
+                    <p><i class="fas fa-phone"></i> 9663664880</p>
+                    <p><i class="fas fa-envelope"></i> SMRENTERPRISES3615@GMAIL.COM</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Sanatan Sanskrutik Sangh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('show') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Page navigation
+        const navLinks = document.querySelectorAll('.nav-link, .footer-link');
+        const pages = document.querySelectorAll('.page-content');
+        const heroSection = document.getElementById('hero');
+        
+        function showPage(pageId) {
+            // Hide all pages and hero section
+            pages.forEach(page => page.classList.add('hidden'));
+            heroSection.classList.add('hidden');
+            
+            // Show selected page
+            document.getElementById(pageId).classList.remove('hidden');
+            
+            // Update active nav link
+            navLinks.forEach(link => {
+                if (link.dataset.page === pageId.replace('-page', '')) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            // Close mobile menu if open
+            if (navMenu.classList.contains('show')) {
+                navMenu.classList.remove('show');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        }
+        
+        // Set up click events for navigation
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const page = link.dataset.page;
+                showPage(`${page}-page`);
+            });
+        });
+        
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                // In a real application, you would send this data to a server
+                // For this example, we'll just show an alert
+                alert(`Thank you, ${name}! Your message has been received. We will contact you at ${email} soon.`);
+                
+                // Reset form
+                contactForm.reset();
+            });
+        }
+        
+        // Initialize home page on load
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage('home-page');
+        });
+    </script>
+</body>
+</html>
